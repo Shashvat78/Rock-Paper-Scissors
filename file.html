@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function letsPlayGame(){
+        let humanScore=0;
+        let computerScore=0;
+        for(let i=1;i<=5;i++){
+        const computerChoice=getComputerChoice();
+        let user=prompt(`Round ${i}: what do you want to chose 1:Rock 2:Scissors 3:Paper`);
+        user=parseInt(user);
+        const result=playRound(user,computerChoice);
+        console.log(`Round ${i}: Result ${result}\n`);
+
+        if(result==="user wins"){
+            humanScore++;
+        }else if(result==="computer wins"){
+            computerScore++;
+        }
+    }
+    if(humanScore>computerScore){
+        console.log("user wins");
+    }else if(computerScore>humanScore){
+        console.log("computer wins");
+    }else{
+        console.log("it's a tie");
+    }
+        }
+
+        function getComputerChoice(){
+            return Math.floor(Math.random() * 3) + 1;
+        }
+        function playRound(user,computerChoice){
+            if(user==1){
+                if(computerChoice==1){
+                    return("both choose rock try again");
+                }else if(computerChoice==2){
+                    return("user wins");
+                }else{
+                    return("computer wins");
+                }
+             }else if(user==2){
+                if(computerChoice==2){
+                    return("both choose Scissors try again");
+                }else if(computerChoice==3){
+                    return("user wins");
+                }else{
+                   return("computer wins");
+                }
+             }else{
+                if(computerChoice==3){
+                    return("both choose paper try again");
+                }else if(computerChoice==2){
+                    return("user wins");
+                }else{
+                    return("computer wins");
+                }
+             }
+        }
+        letsPlayGame();
+    </script>
+</body>
+</html>
